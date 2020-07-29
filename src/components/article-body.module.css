@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap');
+
+.articleBodyWrapper {
+  color: white;
+  font-family: 'Lora', serif;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.nameWrapper {
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  width: 60vw;
+  text-align: center;
+  line-height: 2.6em;
+}
+.artistName {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+}
+
+.subQuote {
+  font-family: 'Lora', serif;
+  font-size: 40px;
+}
+
+.articleCredits {
+  white-space: pre;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.squiggle {
+  width: 50%;
+  margin: auto;
+  height: 30px;
+  display: block;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='white' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3' /%3E%3C/svg%3E");
+  background-size: auto 6px;
+  background-position-y:50%;
+  background-repeat: repeat-x;
+}
+
+.squiggleOuterWrapper {
+  display: table;
+  padding: 20px 0px;
+  margin: auto;
+}
+
+.squiggleWrapper {
+  padding: 50% 0;
+  height: 0;
+}
+
+.squiggleVertical {
+  width: 60px;
+  height: 30px;
+  display: block;
+  transform-origin: top left;
+  transform: rotate(90deg) translate(0, -100%);
+  margin-top: -50%;
+  margin-left: 44%;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='white' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3' /%3E%3C/svg%3E");
+  background-size: auto 4px;
+  background-position-y:50%;
+  background-repeat: repeat-x;
+}
+
+
+.text {
+  width: 48vw;
+  font-size:18px;
+  margin:auto;
+  margin-bottom: 1em;
+}
+
+.quote {
+  margin: auto;
+  width: 60vw;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  line-height: 1.2em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+@media(max-width: 800px) {
+  .articleBodyWrapper{
+    width: 80vw;
+  }
+
+  .text {
+    max-width: 80%;
+    font-size: 16px;
+  }
+
+  .artistName {
+    font-size: 26px;
+  }
+
+  .subQuote {
+    font-size: 22px;
+  }
+}

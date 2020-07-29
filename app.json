@@ -1,0 +1,17 @@
+{
+  "name": "Creative Encounters",
+  "description": "Perceptions of Art.",
+  "keywords": [
+    "art"
+  ],
+  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "success_url": "/",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-static"
+    }
+  ]
+}
