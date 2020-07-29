@@ -22,7 +22,7 @@ class ArticleTemplate extends React.Component {
       } else if(x.nodeType === "heading-2") {
         return {type: "heading-2", value: x.content[0].value}
       } else {
-        return {type: "image", value: "image"}
+        return {type: "image", value: parseInt(x.content[0].value)}
       }
     }));
 
@@ -90,7 +90,7 @@ export const articleQuery = graphql`
       }
       images {
         title
-        fluid(maxWidth: 900) {
+        fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid
         }
       }

@@ -5,7 +5,7 @@
 * thought it'd be cool to get people who are not professional artists (yet) to talk about their philosophy in art & to make these thoughts look professional somewhere on the internet
 
 
-## Idiosyncracies to format of files in CMS & repo
+## Idiosyncrasies to format of files in CMS & repo
 
 ### CMS
 
@@ -29,7 +29,7 @@
 and images are an array of 3 images
 
 ### Repo
-* every slug for an article is unique. when using map, must use unique keys for React, so the keys often look like `{${slug}${i}}`
+* every slug for an article is unique. when using map, must use unique keys for React, so the keys often look like `{${slug}${i}}`, and if there is more nesting, each layer is separated by - e.g. `{${slug}${i}-${j}-${k}}`
 
 ## Crucial Commands
 
@@ -37,7 +37,7 @@ and images are an array of 3 images
 
 Run the project locally with live reload in development mode.
 
-### `npm run build
+### `npm run build`
 
 Run a production build into `./public`. The result is ready to be put on any static hosting you prefer.
 

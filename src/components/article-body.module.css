@@ -87,6 +87,16 @@
   margin-top: 2em;
 }
 
+.imgContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.imgContainer div {
+  max-width: 45%;
+}
+
 @media(max-width: 800px) {
   .articleBodyWrapper{
     width: 80vw;

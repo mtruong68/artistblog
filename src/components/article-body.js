@@ -3,14 +3,21 @@ import Img from 'gatsby-image'
 
 import styles from './article-body.module.css'
 import BodyParagraph from './body-paragraph'
+import styled from 'styled-components';
+
+const SetImg = styled(Img)`
+  display: block !important;
+  flex-grow: 1;
+`;
 
 const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publishDate, articleText }) => {
   const articleBody = JSON.parse(articleText)
   let imgIdx = 0;
   for (let i = 0; i < articleBody.length; i++){
     if (articleBody[i].type === "image"){
-      articleBody[i].value = images[imgIdx];
-      imgIdx++;
+      let numImages = articleBody[i].value;
+      articleBody[i].value = images.slice(imgIdx, imgIdx+numImages);
+      imgIdx+=numImages;
     }
   }
 
@@ -45,11 +52,15 @@ const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publis
           )
         } else {
           return (
-            <div key={`${slug}${i}`}>
-            <Img
-              alt={node.value.title}
-              fluid={node.value.fluid}
-            />
+            <div key={`${slug}${i}`} className={styles.imgContainer}>
+              {node.value.map((imgNode, j) => {
+                return(
+                <SetImg key={`${slug}${i}-${j}`}
+                  alt={imgNode.title}
+                  fluid={imgNode.fluid}
+                  imgStyle={{ objectFit: 'contain' }}
+                />)
+              })}
             </div>
           )
         }
