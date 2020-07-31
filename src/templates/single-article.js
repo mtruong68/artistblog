@@ -2,10 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
-import Layout from '../components/layout'
 
-import heroStyles from '../components/hero.module.css'
+import styles from './single-article.module.css'
 
 import ArticleHeader from '../components/article-header'
 import ArticleBody from '../components/article-body'
@@ -14,6 +12,33 @@ import ArticleSlideshow from '../components/article-slideshow'
 import Navigation from '../components/navigation'
 
 class ArticleTemplate extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      windowHeight: 0,
+      heightDocument: 0
+    }
+  }
+  componentDidMount() {
+    this.setState(state => {
+      state.windowHeight = window.outerHeight;
+      state.heightDocument = state.windowHeight +
+      document.getElementById('content').clientHeight
+    })
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  handleScroll() {
+    var scroll = window.scrollY;
+    document.getElementById('scroll-animate-main').style.top = `-${scroll}px`;
+    document.getElementById('header').style.backgroundPositionY =
+    `${0-(scroll * 100 / this.state.heightDocument)}%`;
+   }
+
   render() {
     const post = get(this.props, 'data.contentfulArticle')
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
@@ -27,30 +52,36 @@ class ArticleTemplate extends React.Component {
     }));
 
     return (
-      <div style={{ background: post.color[0] }}>
-        <Helmet title={`${post.artistName} | CE`} />
-        <div className={heroStyles.hero}></div>
 
-        <ArticleHeader
-        titleQuote={post.titleQuote.childMarkdownRemark.excerpt}
-        video={post.heroVideo.file.url}
-        color={post.color}>
-        </ArticleHeader>
+    <div id="scroll-animate-main" className={styles.scrollAnimateMain}>
+      <Helmet title={`${post.artistName} | CE`} />
+      <div id="wrapper-parallax" className={styles.wrapperParallax} style={{ background: post.color[0] }}>
+        <div id="header" className={styles.header}>
+          <ArticleHeader
+          titleQuote={post.titleQuote.childMarkdownRemark.excerpt}
+          video={post.heroVideo.file.url}
+          color={post.color}>
+          </ArticleHeader>
+        </div>
 
-        <ArticleBody
-        color = {post.color}
-        artistName = {post.artistName}
-        subQuote = {post.subquote.childMarkdownRemark.excerpt}
-        author = {post.author}
-        publishDate = {post.publishDate}
-        articleText = {jsonText}
-        images = {post.images}
-        slug = {post.slug}>
-        </ArticleBody>
+        <section id="content" className={styles.content}>
+          <ArticleBody
+          color = {post.color}
+          artistName = {post.artistName}
+          subQuote = {post.subquote.childMarkdownRemark.excerpt}
+          author = {post.author}
+          publishDate = {post.publishDate}
+          articleText = {jsonText}
+          images = {post.images}
+          slug = {post.slug}>
+          </ArticleBody>
 
-        <ArticleSlideshow />
-        <Navigation />
+          <ArticleSlideshow />
+
+          <Navigation />
+        </section>
       </div>
+    </div>
     )
   }
 }
