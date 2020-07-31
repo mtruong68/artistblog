@@ -23,7 +23,7 @@ const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publis
 
   return (
     <div className={styles.articleBodyWrapper}>
-      <div className={styles.nameWrapper}>
+      <div className={styles.nameWrapper} id="title">
         <span className={styles.artistName}>{artistName}    </span>
         <span className={styles.subQuote}>{subQuote}</span>
       </div>
