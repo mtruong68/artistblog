@@ -28,15 +28,12 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const posts = result.data.allContentfulArticle.edges
-        console.log(posts);
-
+        var allArticles = posts.map(p => p.node.id);
         posts.forEach(post => {
-          //generate list of random articles for carousel of each page
-          var randArticles = posts.map(p => {
-            return (p.node.id);
-          });
           //remove self from list of random articles
-          randArticles = randArticles.filter(p => p != post.node.id);
+          var randArticles = allArticles.filter(p => {
+            return p != post.node.id
+          });
           //shuffle
           var shuffled = randArticles.slice(0), i = randArticles.length, temp, index;
           while (i--) {
@@ -45,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
               shuffled[index] = shuffled[i];
               shuffled[i] = temp;
           }
-          //get 2 articles
+          //get 3 articles
           randArticles = shuffled.slice(0, 3);
 
           createPage({

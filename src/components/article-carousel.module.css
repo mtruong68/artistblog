@@ -4,10 +4,49 @@
 }
 
 .carousel {
-  padding: 50px 0px;
+  padding: 2em 0px;
+}
+
+.rArrow{
+  position: absolute;
+  right: 20px;
+  top: 175px;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.rArrow:hover , .lArrow:hover{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  background-color: white;
+    -webkit-transition: background-color 200ms ease-in;
+    -ms-transition: background-color 200ms ease-in;
+    transition: background-color 200ms ease-in;
+  cursor: pointer;
+}
+
+.lArrow{
+  position: absolute;
+  left: 20px;
+  top: 175px;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  transition: background-color()
 }
 
 .header{
+  padding-top: 1.5em;
   text-align: center;
-  font-size: 3em;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
 }

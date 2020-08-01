@@ -6,6 +6,29 @@ import ArticlePreview from './article-preview'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType }
+  } = rest;
+
+  return <button className={styles.lArrow} onClick={() => onClick()} >
+  <span style={{fontSize: "36px", position:"absolute", top:"7px", left:"5px"}} className="material-icons">chevron_left</span>
+  </button>;
+};
+
+const CustomRightArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType }
+  } = rest;
+
+  return <button className={styles.rArrow} onClick={() => onClick()}>
+  <span style={{fontSize: "36px", position:"absolute", top:"6px", left:"8px"}} className="material-icons">chevron_right</span>
+  </button>
+  ;
+};
+
 class ArticleCarousel extends React.Component {
   render() {
     const carouselItems = this.props.carouselItems;
@@ -13,11 +36,12 @@ class ArticleCarousel extends React.Component {
     return(
       <div className={styles.carouselContainer}>
       <div className={styles.header}>
-        More Art Thoughts...
+        Take a look into other artists' thoughts.
       </div>
       <Carousel
         additionalTransfrom={0}
-       arrows
+       customRightArrow={<CustomRightArrow />}
+       customLeftArrow={<CustomLeftArrow />}
        className={styles.carousel}
        draggable
        focusOnSelect={false}

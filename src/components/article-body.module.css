@@ -73,6 +73,7 @@
   font-size:18px;
   margin:auto;
   margin-bottom: 1em;
+  line-height: 1.7em;
 }
 
 .quote {
@@ -82,34 +83,77 @@
   font-size: 36px;
   line-height: 1.2em;
   text-align: center;
-  margin-top: 2em;
 }
 
 .imgContainer {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 3em 0px;
+  max-width: 90%;
+  margin: auto;
 }
 
 .imgContainer div {
-  max-width: 45%;
+  max-height:  65vh;
 }
 
-@media(max-width: 800px) {
-  .articleBodyWrapper{
-    width: 80vw;
+.text + .quote {
+  margin-top: 2em;
+}
+
+.text + .imgContainer {
+  margin-top: 0em;
+}
+
+@media(min-width:700px) and (max-width:1000px){
+  .nameWrapper {
+    width: 85vw;
+  }
+
+  .quote {
+    width: 85vw;
   }
 
   .text {
-    max-width: 80%;
+    width: 90%;
     font-size: 16px;
+    line-height: 1.7em;
+  }
+
+  .imgContainer{
+    display: block;
+  }
+
+  .imgContainer div {
+    margin-bottom: 12px;
+  }
+}
+
+@media(max-width: 700px) {
+  .articleBodyWrapper{
+    width: 90vw;
   }
 
   .artistName {
-    font-size: 26px;
+    font-size: 32px;
+  }
+
+  .text {
+    width: 80%;
+    font-size: 16px;
+    line-height: 1.8em;
   }
 
   .subQuote {
-    font-size: 22px;
+    font-size: 28px;
+  }
+
+  .imgContainer{
+    display: block;
+  }
+
+  .imgContainer div {
+    margin-bottom: 12px;
   }
 }

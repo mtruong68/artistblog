@@ -7,6 +7,7 @@ import styles from './single-article.module.css'
 
 import ArticleHeader from '../components/article-header'
 import ArticleBody from '../components/article-body'
+import ArticleShare from '../components/article-share'
 import ArticleCarousel from '../components/article-carousel'
 
 class ArticleTemplate extends React.Component {
@@ -51,10 +52,17 @@ class ArticleTemplate extends React.Component {
       }
     }));
 
+    console.log(post.carouselImage.file.url);
+
     return (
 
     <div id="scroll-animate-main" className={styles.scrollAnimateMain}>
-      <Helmet title={`${post.artistName} | CE`} />
+      <Helmet title={`${post.artistName} | CE`}>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.artistName}`} />
+        <meta name="twitter:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
+        <meta name="twitter:image" content={`${post.carouselImage.file.url}?h=350`} />
+      </Helmet>
       <div id="wrapper-parallax" className={styles.wrapperParallax} style={{ background: post.color[0] }}>
         <div id="header" className={styles.header}>
           <ArticleHeader
@@ -75,6 +83,9 @@ class ArticleTemplate extends React.Component {
           images = {post.images}
           slug = {post.slug}>
           </ArticleBody>
+
+          <ArticleShare>
+          </ArticleShare>
 
           <ArticleCarousel deviceType="desktop"
           carouselItems = {carouselItems.edges}
@@ -120,6 +131,11 @@ export const articleQuery = graphql`
       }
       content {
         json
+      }
+      carouselImage{
+        file{
+          url
+        }
       }
       images {
         title

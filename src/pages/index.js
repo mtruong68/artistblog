@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
+import { Link } from 'gatsby'
 import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
@@ -12,6 +14,26 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+          <script
+          dangerouslySetInnerHTML={{
+          __html: `window.twttr = (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      t = window.twttr || {};
+                    if (d.getElementById(id)) return t;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+
+                    t._e = [];
+                    t.ready = function(f) {
+                      t._e.push(f);
+                    };
+
+                    return t;
+                  }(document, "script", "twitter-wjs"));`,
+              }}
+        />
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
@@ -20,7 +42,9 @@ class RootIndex extends React.Component {
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                  <Link to={`/art/${node.slug}`}>
+                    {node.slug}
+                  </Link>
                   </li>
                 )
               })}

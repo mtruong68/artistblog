@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const SetImg = styled(Img)`
   display: block !important;
   flex-grow: 1;
+  margin-right: 2em;
 `;
 
 const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publishDate, articleText }) => {
@@ -36,10 +37,8 @@ const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publis
           return (<div key={`${slug}${i}`} className={styles.text}>{node.value}</div>);
         } else if (node.type === "heading-2") {
           return(
-            <div key={`${slug}${i}`}>
-              <div
-              className={styles.quote}
-              style={{color: "white"}}>
+            <div key={`${slug}${i}`}   className={styles.quote} style={{color: "white"}}>
+              <div>
                 “{node.value}”
               </div>
               <div className={styles.squiggleOuterWrapper}>
