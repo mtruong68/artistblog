@@ -22,8 +22,6 @@ class ArticleHeader extends React.Component {
   }
 
   render(){
-    console.log(this.props.color)
-    console.log(this.props.video)
     return(
     <div>
       <video autoPlay muted loop className={styles.headerVideo}

@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap');
-
 .articleBodyWrapper {
+  padding: 6em 0em;
   color: white;
   font-family: 'Lora', serif;
   left: 0;
@@ -10,7 +9,6 @@
 
 .nameWrapper {
   margin: auto;
-  margin-top: 2em;
   margin-bottom: 1em;
   width: 60vw;
   text-align: center;

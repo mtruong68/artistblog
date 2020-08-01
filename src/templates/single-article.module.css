@@ -18,11 +18,10 @@
 {
   position: relative;
   z-index: 1;
-  padding-top: 4em;
 }
 
 .wrapperParallax {
-  margin-top: 100%;
+  margin-top: 50%;
 }
 
 .header,
@@ -32,9 +31,9 @@
      -moz-transition-property: all;
       transition-property: all;
 
-  -webkit-transition-duration: 0.4s;
-     -moz-transition-duration: 0.4s;
-      transition-duration: 0.4s;
+  -webkit-transition-duration: 0.01s;
+     -moz-transition-duration: 0.01s;
+      transition-duration: 0.01s;
 
   -webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
      -moz-transition-timing-function: cubic-bezier(0, 0, 0, 1);

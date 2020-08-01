@@ -7,9 +7,7 @@ import styles from './single-article.module.css'
 
 import ArticleHeader from '../components/article-header'
 import ArticleBody from '../components/article-body'
-import ArticlePreview from '../components/article-preview'
-import ArticleSlideshow from '../components/article-slideshow'
-import Navigation from '../components/navigation'
+import ArticleCarousel from '../components/article-carousel'
 
 class ArticleTemplate extends React.Component {
   constructor(props){
@@ -36,11 +34,13 @@ class ArticleTemplate extends React.Component {
     var scroll = window.scrollY;
     document.getElementById('scroll-animate-main').style.top = `-${scroll}px`;
     document.getElementById('header').style.backgroundPositionY =
-    `${0-(scroll * 100 / this.state.heightDocument)}%`;
+    `${50-(scroll * 100 / this.state.heightDocument)}%`;
    }
 
   render() {
     const post = get(this.props, 'data.contentfulArticle')
+    const carouselItems = (get(this.props, 'data.allContentfulArticle'));
+
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
       if(x.nodeType === "paragraph"){
         return {type: x.nodeType, value: x.content[0].value}
@@ -76,9 +76,11 @@ class ArticleTemplate extends React.Component {
           slug = {post.slug}>
           </ArticleBody>
 
-          <ArticleSlideshow />
+          <ArticleCarousel deviceType="desktop"
+          carouselItems = {carouselItems.edges}
+          >
+          </ArticleCarousel>
 
-          <Navigation />
         </section>
       </div>
     </div>
@@ -89,7 +91,7 @@ class ArticleTemplate extends React.Component {
 export default ArticleTemplate
 
 export const articleQuery = graphql`
-  query ArticleBySlug($slug: String!) {
+  query ArticleBySlug($slug: String!, $list: [String!]) {
     contentfulArticle(slug: { eq: $slug }) {
       artistName
       color
@@ -123,6 +125,23 @@ export const articleQuery = graphql`
         title
         fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid
+        }
+      },
+    },
+    allContentfulArticle(filter: {id: {in: $list}}){
+      edges {
+        node {
+          slug
+          titleQuote{
+            childMarkdownRemark {
+              excerpt
+            }
+          }
+          carouselImage {
+            fluid(maxHeight: 700) {
+              ...GatsbyContentfulFluid
+            }
+          }
         }
       }
     }

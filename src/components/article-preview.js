@@ -1,15 +1,35 @@
-/*from the default gatsby starter blog*/
-
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './article-preview.module.css'
+import styled from 'styled-components';
 
-export default ({ article }) => (
-  <div className={styles.preview}>
+const SetImg = styled(Img)`
+  display: block;
+  height: 300px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+const ArticlePreview = (props) => {
+  return (
+  <div className={styles.articlePreview}>
+  <StyledLink to={`/art/${props.slug}`}>
+    <div>
+    <SetImg
+      alt=""
+      fluid={props.fluid}
+    />
     <h3 className={styles.previewTitle}>
-      <Link to={`/art/${article.slug}`}>{article.artistName}</Link>
+      “{props.titleQuote}”
     </h3>
+    </div>
+  </StyledLink>
   </div>
-)
+  )
+}
+
+export default ArticlePreview;

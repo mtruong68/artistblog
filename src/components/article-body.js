@@ -2,7 +2,6 @@ import React from 'react'
 import Img from 'gatsby-image'
 
 import styles from './article-body.module.css'
-import BodyParagraph from './body-paragraph'
 import styled from 'styled-components';
 
 const SetImg = styled(Img)`
