@@ -25,7 +25,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Creative Encounters",
+    title: `Art-Discontent`,
+    siteUrl: `https://discontent.netlify.app`,
+    description: `Profiles and Perspectives of Artists`
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
