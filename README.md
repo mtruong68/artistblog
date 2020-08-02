@@ -49,6 +49,10 @@ Spin up a production-ready server with your blog. Don't forget to build your pag
 
 If localhost:8000 is not loading, then clean the cache using this command.
 
+### `netlify deploy`
+
+Run this after `npm run build` to create a manual deployment: cannot do continuous integration w Netlify by you don't wanna expose environment variables :-///
+
 ## Deployment
 
-See the [official Contentful getting started guide](https://www.contentful.com/developers/docs/tutorials/general/get-started/).
+Deployed using Netlify @ https://discontent.netlify.app/

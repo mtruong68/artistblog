@@ -116,7 +116,7 @@
   }
 
   .text {
-    width: 90%;
+    width: 80%;
     font-size: 16px;
     line-height: 1.7em;
   }
@@ -135,14 +135,24 @@
     width: 90vw;
   }
 
+  .nameWrapper {
+    width: 90%;
+  }
+
   .artistName {
     font-size: 32px;
   }
 
   .text {
-    width: 80%;
+    width: 70%;
     font-size: 16px;
     line-height: 1.8em;
+  }
+
+  .quote {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    width: 90%;
   }
 
   .subQuote {

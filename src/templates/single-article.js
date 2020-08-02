@@ -13,34 +13,13 @@ import ArticleCarousel from '../components/article-carousel'
 class ArticleTemplate extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      windowHeight: 0,
-      heightDocument: 0
-    }
-  }
-  componentDidMount() {
-    this.setState(state => {
-      state.windowHeight = window.outerHeight;
-      state.heightDocument = state.windowHeight +
-      document.getElementById('content').clientHeight
-    })
-    window.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll.bind(this));
-  }
-
-  handleScroll() {
-    var scroll = window.scrollY;
-    document.getElementById('scroll-animate-main').style.top = `-${scroll}px`;
-    document.getElementById('header').style.backgroundPositionY =
-    `${50-(scroll * 100 / this.state.heightDocument)}%`;
-   }
 
   render() {
     const post = get(this.props, 'data.contentfulArticle')
     const carouselItems = (get(this.props, 'data.allContentfulArticle'));
+    const metadata = get(this.props, 'data.site.siteMetadata')
 
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
       if(x.nodeType === "paragraph"){
@@ -53,14 +32,13 @@ class ArticleTemplate extends React.Component {
     }));
 
     return (
-
-    <div id="scroll-animate-main" className={styles.scrollAnimateMain}>
-      <Helmet title={`${post.artistName} | CE`}>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${post.artistName}`} />
-        <meta name="twitter:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
-        <meta name="twitter:image" content={`${post.carouselImage.file.url}?h=350`} />
-      </Helmet>
+    <div>
+    <Helmet title={`${post.artistName} | CE`}>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`${post.artistName} | ${metadata.title}`} />
+      <meta name="twitter:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
+      <meta name="twitter:image" content={`https:${post.carouselImage.file.url}?w=500&q=100`} />
+    </Helmet>
       <div id="wrapper-parallax" className={styles.wrapperParallax} style={{ background: post.color[0] }}>
         <div id="header" className={styles.header}>
           <ArticleHeader
@@ -82,8 +60,12 @@ class ArticleTemplate extends React.Component {
           slug = {post.slug}>
           </ArticleBody>
 
-          <ArticleShare>
+          <ArticleShare
+          siteUrl = {metadata.siteUrl}
+          slug = {post.slug}
+          >
           </ArticleShare>
+          hello
 
           <ArticleCarousel deviceType="desktop"
           carouselItems = {carouselItems.edges}
@@ -158,6 +140,12 @@ export const articleQuery = graphql`
           }
         }
       }
-    }
+    },
+    site {
+      siteMetadata{
+        siteUrl
+        title
+      }
+    },
   }
 `
