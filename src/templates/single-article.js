@@ -52,8 +52,6 @@ class ArticleTemplate extends React.Component {
       }
     }));
 
-    console.log(post.carouselImage.file.url);
-
     return (
 
     <div id="scroll-animate-main" className={styles.scrollAnimateMain}>
