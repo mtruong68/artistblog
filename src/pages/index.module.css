@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Ubuntu+Mono&display=swap');
+
+.indexWrapper{
+  background: black;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  background: radial-gradient(circle, rgba(92,0,0,1) 60%, rgba(0,13,84,1) 100%);
+}
+
+.statement {
+  color: #0300ba;
+  width: 100%;
+  font-family: 'Red Rose', cursive;
+  text-align: justify;
+  text-align-last: right;
+  letter-spacing: 3px;
+  font-size: 1em;
+  cursor: default;
+}
+
+.wrapper {
+  width: 70%;
+  height: 80%;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  padding: 1% 3% 2% 3%;
+}
+
+.leftHalf {
+  width: 70%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.rightHalf {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 80vh;
+  background: linear-gradient(172deg, rgba(17,33,143,1) 0%, rgba(203,41,41,1) 80%);
+  overflow: hidden;
+}
+
+.preview{
+  height: 70%;
+  width: 100%;
+  overflow:hidden;
+  background-color: red;
+  position: relative;
+}
+
+.previewName{
+  opacity: .8;
+  font-weight: normal;
+  position: absolute;
+  color: white;
+  right: 7%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-variant-caps: small-caps;
+  letter-spacing: 3px;
+  font-size: 2em;
+  background: black;
+  top: 25%;
+  padding: 4px;
+
+  transition: opacity .3s linear;
+}
+
+.previewQuote{
+  opacity: .8;
+  position: absolute;
+  color: white;
+  top: 40%;
+  right: 7%;
+  background: black;
+  font-family: 'Ubuntu Mono', monospace;
+  letter-spacing: 1px;
+  padding: 4px;
+  max-width: 60%;
+  transition: opacity .3s linear;
+}
+
+.videoOverlay {
+  background-color: blue;
+  opacity: .2;
+  height: 56vh;
+  width: 44.5vw;
+  position: absolute;
+  transition: opacity .3s linear;
+}
+
+.videoBorder {
+  border: solid 2px blue;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 52vh;
+  width: 43vw;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+
+.videoLink:hover .videoOverlay, .videoLink:hover .videoBorder {
+  opacity: 0;
+}
+.videoLink:hover .previewName, .videoLink:hover .previewQuote {
+  opacity: 1;
+}
+
+.infoLinks {
+  color: #403ebd;
+  font-family: 'Ubuntu Mono', monospace;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.infoLink {
+  text-decoration: none;
+  color: #504de3;
+  margin-right: 1em;
+}
+
+.infoLink:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.postsWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 30%;
+  width: 100%;
+  background-color: blue;
+}
+
+.logo {
+  width: 70%;
+  height: 40%;
+  margin: auto;
+  padding: 12px 0px;
+}
+
+.imagePreview {
+  width: 33%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.imagePreview:hover .overlay{
+  opacity: .2;
+}
+
+.overlay {
+  position: absolute;
+  height: 26.7%;
+  width: 11%;
+  background-color: black;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity .3s ease-in;
+}
+
+.artPgLink {
+  font-family: 'Ubuntu Mono', monospace;
+  text-decoration: none;
+  color: white;
+  margin: 1em;
+  font-size: 1.3em;
+  align-self: flex-end;
+}
+
+.artPgLink:hover {
+  text-decoration: underline;
+  color: #c7eeff;
+}

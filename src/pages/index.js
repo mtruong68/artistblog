@@ -3,55 +3,146 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import { Helmet } from 'react-helmet'
-import Layout from '../components/layout'
 import { Link } from 'gatsby'
-import ArticlePreview from '../components/article-preview'
+import Img from 'gatsby-image'
+
+import styles from './index.module.css'
+import styled from 'styled-components';
+import '../components/base.css'
+
+const SetImg = styled(Img)`
+  display: block;
+  min-height: 100%;
+`;
 
 class RootIndex extends React.Component {
+
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulArticle.edges')
+    const logoLarge = get(this, 'props.data.allContentfulBranding.edges.0.node.logoLarge.fluid')
 
     return (
-      <Layout location={this.props.location}>
-          <script
-          dangerouslySetInnerHTML={{
-          __html: `window.twttr = (function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0],
-                      t = window.twttr || {};
-                    if (d.getElementById(id)) return t;
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "https://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
+      <div className={styles.indexWrapper}>
+      <div className={styles.statement}>i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a queer art i want a cold art i want a dead art
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      </div>
+        <Helmet title={siteTitle} />
 
-                    t._e = [];
-                    t.ready = function(f) {
-                      t._e.push(f);
-                    };
+        <div className={styles.wrapper}>
+            <div className={styles.leftHalf}>
+              <div className={styles.preview}>
+                <Link to={`/art/${posts[0].node.slug}`} className={styles.videoLink}>
+                <div className={styles.videoOverlay}></div>
+                <div className={styles.videoBorder}></div>
+                <div className={styles.previewName}>{posts[0].node.artistName}</div>
+                <div className={styles.previewQuote}>“{posts[0].node.titleQuote.childMarkdownRemark.excerpt}”</div>
 
-                    return t;
-                  }(document, "script", "twitter-wjs"));`,
-              }}
-        />
-        <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
+                <video autoPlay muted loop>
+                  <source src={posts[0].node.heroVideo.file.url} />
+                </video>
+                </Link>
+              </div>
+
+              <div className={styles.infoLinks}>
+                <div style={{paddingBottom: "8px"}}>
+                we profile art perspectives @ Art-Discontent
+                </div>
+                <div>
+                  <Link to={`/art/`} className={styles.infoLink}><span>Art</span></Link>
+                  <Link to={`/about/`} className={styles.infoLink}><span>About</span></Link>
+                  <Link to={`/contact/`} className={styles.infoLink}><span>Contact</span></Link>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.rightHalf}>
+              <Img fluid={logoLarge} className={styles.logo} imgStyle={{ objectFit: 'contain' }}/>
+              <Link to={`/art/`} className={styles.artPgLink}> &gt;&gt; More Articles </Link>
+              <div className={styles.postsWrapper}>
               {posts.map(({ node }) => {
                 return (
-                  <li key={node.slug}>
-                  <Link to={`/art/${node.slug}`}>
-                    {node.slug}
+                  <Link className={styles.imagePreview} key={node.slug} to={`/art/${node.slug}`}>
+                    <div className={styles.overlay}></div>
+                    <SetImg alt={node.carouselImage.title}
+                    fluid={node.carouselImage.fluid} />
                   </Link>
-                  </li>
                 )
               })}
-            </ul>
-          </div>
+              </div>
+            </div>
         </div>
-      </Layout>
+
+      </div>
     )
   }
 }
@@ -60,18 +151,45 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulArticle {
+    allContentfulArticle(limit: 3, sort: {fields: publishDate, order: DESC}) {
       edges {
         node {
+          slug
           artistName
-          titleQuote {
-            childMarkdownRemark {
-              html
+          carouselImage{
+            title
+            fluid(maxWidth: 600) {
+              ...GatsbyContentfulFluid
             }
           }
-          slug
+          titleQuote {
+            childMarkdownRemark {
+              excerpt
+            }
+          }
+          heroVideo {
+            file {
+              url
+            }
+          }
         }
       }
     }
+    allContentfulBranding{
+      edges{
+        node{
+          logo{
+            fluid(maxWidth: 1200) {
+              ...GatsbyContentfulFluid
+            }
+          }
+          logoLarge{
+            fluid(maxWidth: 1200) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+    }
   }
+}
 `
