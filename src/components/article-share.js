@@ -3,16 +3,13 @@ import React from 'react'
 import styles from './article-share.module.css'
 
 class ArticleShare extends React.Component {
-  constructor(props){
-    super(props);
-    this.copyLink = this.copyLink.bind(this);
-  }
-
   copyLink(url){
-      navigator.clipboard.writeText(url).then(function() {
+    if(typeof window !== 'undefined'){
+      window.navigator.clipboard.writeText(url).then(function() {
       }, function(err) {
         console.error('Async: Could not copy text: ', err);
       });
+    }
   }
 
   render() {

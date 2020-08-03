@@ -11,11 +11,6 @@ import ArticleShare from '../components/article-share'
 import ArticleCarousel from '../components/article-carousel'
 
 class ArticleTemplate extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-
   render() {
     const post = get(this.props, 'data.contentfulArticle')
     const carouselItems = (get(this.props, 'data.allContentfulArticle'));
