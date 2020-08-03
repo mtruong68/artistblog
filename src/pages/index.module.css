@@ -53,7 +53,7 @@
   height: 70%;
   width: 100%;
   overflow:hidden;
-  background-color: red;
+  background-color: black;
   position: relative;
 }
 
@@ -71,31 +71,29 @@
   background: black;
   top: 25%;
   padding: 4px;
-
-  transition: opacity .3s linear;
+  transition: opacity .2s linear;
 }
 
 .previewQuote{
-  opacity: .8;
+  opacity: 1;
   position: absolute;
   color: white;
-  top: 40%;
+  background-color: black;
+  top: 43%;
   right: 7%;
-  background: black;
   font-family: 'Ubuntu Mono', monospace;
+  -webkit-transform: translateZ(0);
   letter-spacing: 1px;
-  padding: 4px;
-  max-width: 60%;
-  transition: opacity .3s linear;
+  transition: opacity .2s linear;
 }
 
 .videoOverlay {
-  background-color: blue;
+  background-color: black;
   opacity: .2;
   height: 56vh;
   width: 44.5vw;
   position: absolute;
-  transition: opacity .3s linear;
+  transition: opacity .2s linear;
 }
 
 .videoBorder {
@@ -108,14 +106,7 @@
   height: 52vh;
   width: 43vw;
   opacity: 1;
-  transition: opacity .3s linear;
-}
-
-.videoLink:hover .videoOverlay, .videoLink:hover .videoBorder {
-  opacity: 0;
-}
-.videoLink:hover .previewName, .videoLink:hover .previewQuote {
-  opacity: 1;
+  transition: opacity .2s linear;
 }
 
 .infoLinks {
