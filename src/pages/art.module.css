@@ -1,0 +1,46 @@
+.articleList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: white;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgWrapper {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+  align-items: flex-end;
+  padding-bottom: 12px;
+}
+
+.articleContainer {
+  max-width: 24%;
+  max-height: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  align-items: center;
+}
+.artistName {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+}
+
+.titleQuote {
+    font-family: "Lora", serif;
+    text-align: center;
+    font-size: 1.4em;
+    padding-bottom: 12px;
+    color: white;
+}
+
+.articleContainer:hover .titleQuote{
+  text-decoration: underline;
+}
