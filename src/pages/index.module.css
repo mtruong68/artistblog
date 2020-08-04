@@ -84,6 +84,7 @@
   font-family: 'Ubuntu Mono', monospace;
   -webkit-transform: translateZ(0);
   letter-spacing: 1px;
+  padding: 4px;
   transition: opacity .2s linear;
 }
 

@@ -226,6 +226,7 @@ export const pageQuery = graphql`
         }
       }
     }
+
     allContentfulBranding{
       edges{
         node{
@@ -240,7 +241,7 @@ export const pageQuery = graphql`
             }
           }
         }
-    }
+      }
   }
 }
 `
