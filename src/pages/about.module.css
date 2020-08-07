@@ -1,0 +1,36 @@
+.logoWrapper{
+  text-align: center;
+  margin: 2em 0em 4em;
+}
+
+.wrapper{
+  color: white;
+  max-width: 60%;
+  margin-left: 25px;
+}
+
+.wrapper a{
+  color: #69E2F8;
+}
+
+.question {
+  font-family: 'Ubuntu Mono', monospace;
+  margin-bottom: .5em;
+  font-size: 20px;
+  color: #69E2F8;
+}
+
+.answer {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  line-height: 1.6em;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+@media(max-width: 900px) {
+  .wrapper{
+    color: white;
+    max-width: 80%;
+  }
+}
