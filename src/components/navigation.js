@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
+import Img from 'gatsby-image'
 
-export default () => (
-  <nav role="navigation">
-    <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
-        <Link to="/">Home</Link>
-      </li>
-    </ul>
-  </nav>
-)
+const Navigation = (props) => {
+  return (
+  <div className={styles.navigation}>
+    <Link className={styles.logo} to={`/`}>
+      <Img fixed={props.logo.fixed} />
+    </Link>
+  </div>
+  )
+}
+
+export default Navigation;
