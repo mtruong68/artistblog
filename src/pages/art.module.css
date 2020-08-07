@@ -2,28 +2,34 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   color: white;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 4em;
+}
+
+.logoWrapper{
+  text-align: center;
+  margin: 2em 0em 4em;
 }
 
 .imgWrapper {
   display: flex;
-  height: 30vh;
+  height: 240px;
   width: 100%;
   align-items: flex-end;
   padding-bottom: 12px;
 }
 
 .articleContainer {
-  max-width: 24%;
   max-height: 100%;
+  max-width: 300px;
   padding: 5px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: black;
   align-items: center;
 }
 .artistName {
@@ -31,6 +37,7 @@
     font-size: 1em;
     font-weight: bold;
     color: white;
+    padding: 1em 0em .5em 0em;
 }
 
 .titleQuote {
@@ -43,4 +50,22 @@
 
 .articleContainer:hover .titleQuote{
   text-decoration: underline;
+}
+
+@media(max-width: 640px) {
+  .logoWrapper {
+    margin: 2em 0em 2em;
+  }
+
+  .artistName {
+      text-align: center;
+  }
+
+  .articleContainer {
+    display: block;
+    max-height: 420px;
+    max-width: 500px;
+    overflow:hidden;
+    padding-bottom: 1.5em;
+  }
 }

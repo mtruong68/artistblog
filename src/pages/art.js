@@ -4,6 +4,7 @@ import get from 'lodash/get'
 
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Footer from '../components/footer'
 
 import styles from './art.module.css'
 import styled from 'styled-components';
@@ -11,6 +12,7 @@ import styled from 'styled-components';
 const SetImg = styled(Img)`
   display: block;
   flex-grow: 1;
+  max-height: 300px;
 `;
 
 class ArtPage extends React.Component {
@@ -20,11 +22,11 @@ class ArtPage extends React.Component {
 
     return (
       <div>
-      <div>
-        <Link to={`/`}>
-        <Img fixed={logoLarge} />
-        </Link>
-      </div>
+        <div className={styles.logoWrapper}>
+          <Link to={`/`}>
+            <Img fixed={logoLarge} />
+          </Link>
+        </div>
           <div className={styles.articleList}>
             {posts.map(({ node }) => {
               return (
@@ -41,6 +43,7 @@ class ArtPage extends React.Component {
               )
             })}
           </div>
+          <Footer />
       </div>
     )
   }
