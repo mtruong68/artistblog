@@ -10,13 +10,13 @@ const SetImg = styled(Img)`
   margin-right: 2em;
 `;
 
-const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publishDate, articleText }) => {
-  const articleBody = JSON.parse(articleText)
+const ArticleBody = ( props ) => {
+  const articleBody = JSON.parse(props.articleText)
   let imgIdx = 0;
   for (let i = 0; i < articleBody.length; i++){
     if (articleBody[i].type === "image"){
       let numImages = articleBody[i].value;
-      articleBody[i].value = images.slice(imgIdx, imgIdx+numImages);
+      articleBody[i].value = props.images.slice(imgIdx, imgIdx+numImages);
       imgIdx+=numImages;
     }
   }
@@ -24,20 +24,20 @@ const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publis
   return (
     <div className={styles.articleBodyWrapper}>
       <div className={styles.nameWrapper} id="title">
-        <span className={styles.artistName}>{artistName}    </span>
-        <span className={styles.subQuote}>{subQuote}</span>
+        <span className={styles.artistName}>{props.artistName}    </span>
+        <span className={styles.subQuote}>{props.subQuote}</span>
       </div>
       <div className={styles.articleCredits}>
-        <span>By {author}  </span><span>{publishDate}</span>
+        <span>By {props.author}  </span><span>{props.publishDate}</span>
       </div>
       <div className={styles.squiggle}></div>
       <br></br>
       {articleBody.map(( node, i ) => {
         if(node.type === "paragraph"){
-          return (<div key={`${slug}${i}`} className={styles.text}>{node.value}</div>);
+          return (<div key={`${props.slug}${i}`} className={styles.text}>{node.value}</div>);
         } else if (node.type === "heading-2") {
           return(
-            <div key={`${slug}${i}`}   className={styles.quote} style={{color: "white"}}>
+            <div key={`${props.slug}${i}`}   className={styles.quote} style={{color: "white"}}>
               <div>
                 “{node.value}”
               </div>
@@ -50,19 +50,36 @@ const ArticleBody = ({ artistName, slug, color, images, subQuote, author, publis
           )
         } else {
           return (
-            <div key={`${slug}${i}`} className={styles.imgContainer}>
+            <div key={`${props.slug}${i}`} className={styles.imgContainer}>
               {node.value.map((imgNode, j) => {
-                return(
-                <SetImg key={`${slug}${i}-${j}`}
-                  alt={imgNode.title}
-                  fluid={imgNode.fluid}
-                  imgStyle={{ objectFit: 'contain' }}
-                />)
+                if (imgNode.description){
+                  return (
+                  <a className={styles.linkedImage}
+                  key={`${props.slug}${i}-${j}`}
+                  href={`${imgNode.description}`}>
+                    <SetImg
+                      alt={imgNode.title}
+                      fluid={imgNode.fluid}
+                      imgStyle={{ objectFit: 'contain' }}
+                    />
+                  </a>)
+                } else {
+                  return(
+                  <SetImg key={`${props.slug}${i}-${j}`}
+                    alt={imgNode.title}
+                    fluid={imgNode.fluid}
+                    imgStyle={{ objectFit: 'contain' }}
+                  />)
+                }
               })}
             </div>
           )
         }
       })}
+      <div className={styles.artistSite}>
+        See more from the artist at <br></br>
+        <a href={`${props.artistSite}`}>{props.artistSite}</a>
+      </div>
     </div>
   )
 }

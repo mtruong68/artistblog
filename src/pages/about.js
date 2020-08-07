@@ -61,9 +61,11 @@ class AboutPage extends React.Component {
               There's some whack bug in this site.
             </div>
             <div className={styles.answer}>
-              If it's on Internet Explorer, I won't care. If it's a Safari bug, there's a 50-50 chance I'll get to it.
-              If it lets you hack into the site, feel free to do so. E-mail me at mtruong68@gmail.com if you think I should
-              address it.
+              If it's on Internet Explorer, I won't care.
+              If it lets you hack into the site, feel free to do so.
+              I am well aware that there are Safari bugs and on mobile (esp tablets) the
+              layout needs a lot of adjustment... it's still a work in progress.
+              E-mail me at mtruong68@gmail.com if you think I should address the bugs.
             </div>
             <div className={styles.question}>
               Can you publish me?

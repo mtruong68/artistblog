@@ -85,6 +85,10 @@
   text-align: center;
 }
 
+.linkedImage {
+  flex-grow: 1;
+}
+
 .imgContainer {
   display: flex;
   justify-content: space-around;
@@ -104,6 +108,22 @@
 
 .text + .imgContainer {
   margin-top: 0em;
+}
+
+.artistSite {
+  text-align: center;
+  font-size: 2em;
+  padding-top: 2em;
+}
+
+.artistSite a {
+  color: white;
+  text-decoration: none;
+}
+
+.artistSite a:hover {
+  color: blue;
+  text-decoration: none;
 }
 
 @media(min-width:700px) and (max-width:1000px){
@@ -144,7 +164,7 @@
   }
 
   .text {
-    width: 70%;
+    width: 80%;
     font-size: 16px;
     line-height: 1.8em;
   }
@@ -165,5 +185,27 @@
 
   .imgContainer div {
     margin-bottom: 12px;
+  }
+}
+
+@media(max-width: 450px) {
+  .articleBodyWrapper{
+    width: 100vw;
+  }
+
+  .artistSite {
+    margin: 10px;
+    font-size: 26px;
+  }
+
+  .text {
+    width: 90%;
+    font-size: 16px;
+    line-height: 1.8em;
+  }
+
+  .squiggle {
+    background-size: auto 5px;
+    height: 40px;
   }
 }

@@ -55,7 +55,8 @@ class ArticleTemplate extends React.Component {
           publishDate = {post.publishDate}
           articleText = {jsonText}
           images = {post.images}
-          slug = {post.slug}>
+          slug = {post.slug}
+          artistSite = {post.artistSite}>
           </ArticleBody>
 
           <ArticleShare
@@ -85,6 +86,7 @@ export const articleQuery = graphql`
   query ArticleBySlug($slug: String!, $list: [String!]) {
     contentfulArticle(slug: { eq: $slug }) {
       artistName
+      artistSite
       color
       author
       publishDate(formatString: "MMMM Do, YYYY")
@@ -119,6 +121,7 @@ export const articleQuery = graphql`
       }
       images {
         title
+        description
         fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid
         }

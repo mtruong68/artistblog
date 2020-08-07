@@ -18,9 +18,16 @@ const SetImg = styled(Img)`
 class RootIndex extends React.Component {
   constructor(props){
     super(props);
+    this.timer= null;
     this.state = {
       currNode: 0,
     }
+
+    this.resetArticlePreview = this.resetArticlePreview.bind(this);
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.timer);
   }
 
   previewArticle(i){
@@ -33,7 +40,7 @@ class RootIndex extends React.Component {
       document.getElementById('videoBorder').style.opacity = 0;
       document.getElementById('previewName').style.opacity = 1;
 
-      setTimeout(function(){
+      this.timer = setTimeout(function(){
         document.getElementById('videoOverlay').style.opacity = 0;
         document.getElementById('videoBorder').style.opacity = 0;
         document.getElementById('previewName').innerText = posts[i].node.artistName;
@@ -57,7 +64,8 @@ class RootIndex extends React.Component {
     document.getElementById('videoBorder').style.opacity = 1;
     document.getElementById('videoOverlay').style.opacity = .2;
     document.getElementById('previewName').style.opacity = .8;
-    setTimeout(function(){
+
+    this.timer = setTimeout(function(){
       document.getElementById('videoBorder').style.opacity = 1;
       document.getElementById('videoOverlay').style.opacity = .2;
       document.getElementById('previewName').style.opacity = .8;
