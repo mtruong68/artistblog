@@ -10,15 +10,6 @@ const SetImg = styled(Img)`
   height: 300px;
 `;
 
-const Overlay = styled.div`
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-  background-color: black;
-  opacity: 0;
-  height: 300px;
-`;
-
 const StyledLink = styled(Link)`
   text-decoration: none;
   &:hover {

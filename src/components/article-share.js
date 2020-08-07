@@ -32,7 +32,11 @@ class ArticleShare extends React.Component {
       target="_blank">
       Tweet</a>
 
-      <span className={styles.shareLink} onClick={this.copyLink(url)}>Link</span>
+      <span role="button"
+      tabIndex={0}
+      className={styles.shareLink}
+      onKeyDown={this.copyLink(url)}
+      onClick={this.copyLink(url)}>Link</span>
       </div>
     )
   }

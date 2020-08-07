@@ -9,12 +9,15 @@ import ArticleHeader from '../components/article-header'
 import ArticleBody from '../components/article-body'
 import ArticleShare from '../components/article-share'
 import ArticleCarousel from '../components/article-carousel'
+import Navigation from '../components/navigation'
+import Footer from '../components/footer'
 
 class ArticleTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulArticle')
     const carouselItems = (get(this.props, 'data.allContentfulArticle'));
     const metadata = get(this.props, 'data.site.siteMetadata')
+    const logo = get(this.props, 'data.allContentfulBranding.edges[0].node.logo')
 
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
       if(x.nodeType === "paragraph"){
@@ -34,6 +37,7 @@ class ArticleTemplate extends React.Component {
       <meta name="twitter:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
       <meta name="twitter:image" content={`https:${post.carouselImage.file.url}?w=500&q=100`} />
     </Helmet>
+      <Navigation logo={logo}/>
       <div id="wrapper-parallax" className={styles.wrapperParallax} style={{ background: post.color[0] }}>
         <div id="header" className={styles.header}>
           <ArticleHeader
@@ -66,6 +70,8 @@ class ArticleTemplate extends React.Component {
           carouselItems = {carouselItems.edges}
           >
           </ArticleCarousel>
+
+          <Footer/>
 
         </section>
       </div>
@@ -142,5 +148,16 @@ export const articleQuery = graphql`
         title
       }
     },
+    allContentfulBranding{
+      edges{
+        node{
+          logo{
+            fixed(height: 50) {
+              ...GatsbyContentfulFixed
+            }
+          }
+        }
+      }
+    }
   }
 `

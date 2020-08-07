@@ -25,7 +25,7 @@ class RootIndex extends React.Component {
 
   previewArticle(i){
     const posts = get(this, 'props.data.allContentfulArticle.edges');
-    if (i != this.state.currNode){
+    if (i !== this.state.currNode){
       this.setState((state) => {
         state.currNode = i;
       });
@@ -35,6 +35,7 @@ class RootIndex extends React.Component {
 
       setTimeout(function(){
         document.getElementById('videoOverlay').style.opacity = 0;
+        document.getElementById('videoBorder').style.opacity = 0;
         document.getElementById('previewName').innerText = posts[i].node.artistName;
         document.getElementById('previewQuote').innerText = `“${posts[i].node.titleQuote.childMarkdownRemark.excerpt}”`;
         document.getElementById('previewVideo').src = posts[i].node.heroVideo.file.url;
@@ -72,72 +73,57 @@ class RootIndex extends React.Component {
       <div className={styles.indexWrapper}>
       <div className={styles.statement}>i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       i want a queer art i want a cold art i want a dead art
       i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
-      i want a genital art i want a transparent art i want a difficult art i want an
-      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
-      i want a queer art i want a cold art i want a dead art
-      i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
-      i want a genital art i want a transparent art i want a difficult art i want an
-      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
-      i want a queer art i want a cold art i want a dead art
-      i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
-      i want a genital art i want a transparent art i want a difficult art i want an
-      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
-      i want a queer art i want a cold art i want a dead art
-      i want a new art i want a Black art i want a silent art i want a violent art
-      i a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       </div>
@@ -167,7 +153,6 @@ class RootIndex extends React.Component {
                 <div>
                   <Link to={`/art/`} className={styles.infoLink}><span>Art</span></Link>
                   <Link to={`/about/`} className={styles.infoLink}><span>About</span></Link>
-                  <Link to={`/contact/`} className={styles.infoLink}><span>Contact</span></Link>
                 </div>
               </div>
             </div>
@@ -175,6 +160,15 @@ class RootIndex extends React.Component {
             <div className={styles.rightHalf}>
               <Img fluid={logoLarge} className={styles.logo} imgStyle={{ objectFit: 'contain' }}/>
               <Link to={`/art/`} className={styles.artPgLink}> &gt;&gt; More Articles </Link>
+              <div className={styles.infoLinksMobile}>
+                <div style={{paddingBottom: "8px"}}>
+                we profile art perspectives @ Art-Discontent
+                </div>
+                <div>
+                  <Link to={`/art/`} className={styles.infoLink}><span>Art</span></Link>
+                  <Link to={`/about/`} className={styles.infoLink}><span>About</span></Link>
+                </div>
+              </div>
               <div className={styles.postsWrapper}>
               {posts.map(({ node }, i) => {
                 return (
@@ -184,6 +178,12 @@ class RootIndex extends React.Component {
                   onMouseEnter={this.previewArticle.bind(this, i)}
                   onMouseLeave={this.resetArticlePreview}>
                     <div className={styles.overlay}></div>
+                    <div className = {styles.overlayArtistName}>
+                      {node.artistName}
+                    </div>
+                    <div className= {styles.overlayTitleQuote}>
+                      {node.titleQuote.childMarkdownRemark.excerpt}
+                    </div>
                     <SetImg alt={node.carouselImage.title}
                     fluid={node.carouselImage.fluid} />
                   </Link>
@@ -226,7 +226,6 @@ export const pageQuery = graphql`
         }
       }
     }
-
     allContentfulBranding{
       edges{
         node{
