@@ -15,9 +15,8 @@ import Footer from '../components/footer'
 class ArticleTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulArticle')
-    const carouselItems = (get(this.props, 'data.allContentfulArticle'));
-    const metadata = get(this.props, 'data.site.siteMetadata')
-    const logo = get(this.props, 'data.allContentfulBranding.edges[0].node.logo')
+    const carouselItems = (get(this.props, 'data.allContentfulArticle'))
+    const siteMetadata = get(this.props, 'data.site.siteMetadata')
 
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
       if(x.nodeType === "paragraph"){
@@ -31,13 +30,13 @@ class ArticleTemplate extends React.Component {
 
     return (
     <div>
-    <Helmet title={`${post.artistName} | CE`}>
+    <Helmet title={`${post.artistName} | AD`}>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`${post.artistName} | ${metadata.title}`} />
+      <meta name="twitter:title" content={`${post.artistName} | ${siteMetadata.title}`} />
       <meta name="twitter:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
       <meta name="twitter:image" content={`https:${post.carouselImage.file.url}?w=500&q=100`} />
     </Helmet>
-      <Navigation logo={logo}/>
+      <Navigation logo={siteMetadata.favicon}/>
       <div id="wrapper-parallax" className={styles.wrapperParallax} style={{ background: post.color[0] }}>
         <div id="header" className={styles.header}>
           <ArticleHeader
@@ -60,7 +59,7 @@ class ArticleTemplate extends React.Component {
           </ArticleBody>
 
           <ArticleShare
-          siteUrl = {metadata.siteUrl}
+          siteUrl = {siteMetadata.siteUrl}
           slug = {post.slug}
           >
           </ArticleShare>
@@ -146,17 +145,7 @@ export const articleQuery = graphql`
       siteMetadata{
         siteUrl
         title
-      }
-    },
-    allContentfulBranding{
-      edges{
-        node{
-          logo{
-            fixed(height: 50) {
-              ...GatsbyContentfulFixed
-            }
-          }
-        }
+        favicon
       }
     }
   }

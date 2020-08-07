@@ -65,9 +65,9 @@ class RootIndex extends React.Component {
   }
 
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+
+    const siteMetadata = get(this, 'props.data.site.siteMetadata')
     const posts = get(this, 'props.data.allContentfulArticle.edges')
-    const logoLarge = get(this, 'props.data.allContentfulBranding.edges.0.node.logoLarge.fluid')
 
     return (
       <div className={styles.indexWrapper}>
@@ -127,7 +127,12 @@ class RootIndex extends React.Component {
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       </div>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteMetadata.title} >
+        <link rel="icon" type="image/png"
+        href={siteMetadata.favicon}
+        sizes="16x16"
+        />
+        </Helmet>
 
         <div className={styles.wrapper}>
             <div className={styles.leftHalf}>
@@ -158,7 +163,7 @@ class RootIndex extends React.Component {
             </div>
 
             <div className={styles.rightHalf}>
-              <Img fluid={logoLarge} className={styles.logo} imgStyle={{ objectFit: 'contain' }}/>
+              <img className={styles.logo} src={`${siteMetadata.logoLarge}`} alt="logo_large" />
               <Link to={`/art/`} className={styles.artPgLink}> &gt;&gt; More Articles </Link>
               <div className={styles.infoLinksMobile}>
                 <div style={{paddingBottom: "8px"}}>
@@ -226,21 +231,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulBranding{
-      edges{
-        node{
-          logo{
-            fluid(maxWidth: 1200) {
-              ...GatsbyContentfulFluid
-            }
-          }
-          logoLarge{
-            fluid(maxWidth: 1200) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
+    site {
+      siteMetadata{
+        title
+        favicon
+        logoLarge
       }
-  }
+    }
 }
 `

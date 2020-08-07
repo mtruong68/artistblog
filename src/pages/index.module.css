@@ -141,6 +141,7 @@
 .logo {
   width: 70%;
   height: 40%;
+  object-fit: contain;
   margin: auto;
   padding: 12px 0px;
 }

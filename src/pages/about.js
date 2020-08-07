@@ -2,21 +2,27 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
+import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import Footer from '../components/footer'
 
 import styles from './about.module.css'
 
 class AboutPage extends React.Component {
   render() {
-    const logoLarge = get(this, 'props.data.allContentfulBranding.edges[0].node.logoLarge.fixed')
+    const siteMetadata = get(this, 'props.data.site.siteMetadata')
 
     return (
         <div>
+          <Helmet title={`About | ${siteMetadata.title}`}>
+          <link rel="icon" type="image/png"
+          href={`${siteMetadata.favicon}`}
+          sizes="16x16"
+          />
+          </Helmet>
           <div className={styles.logoWrapper}>
             <Link to={`/`}>
-              <Img fixed={logoLarge} />
+              <img alt="logo_large" src={`${siteMetadata.logoLarge}`} />
             </Link>
           </div>
           <div className={styles.wrapper}>
@@ -84,20 +90,11 @@ class AboutPage extends React.Component {
 
 export const pageQuery = graphql`
   query AboutQuery {
-    allContentfulBranding{
-      edges{
-        node{
-          logo{
-            fluid(maxWidth: 1200) {
-              ...GatsbyContentfulFluid
-            }
-          }
-          logoLarge{
-            fixed(width: 200) {
-              ...GatsbyContentfulFixed
-            }
-          }
-        }
+  site {
+    siteMetadata{
+      title
+      favicon
+      logoLarge
     }
   }
 }
