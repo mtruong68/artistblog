@@ -28,6 +28,8 @@
 
 and images are an array of 3 images
 
+* image descriptions must only be URLs; if image has a url description, then it will be linked
+
 ### Repo
 * every slug for an article is unique. when using map, must use unique keys for React, so the keys often look like `{${slug}${i}}`, and if there is more nesting, each layer is separated by - e.g. `{${slug}${i}-${j}-${k}}`
 
@@ -55,4 +57,4 @@ Run this after `npm run build` to create a manual deployment: cannot do continuo
 
 ## Deployment
 
-Deployed using Netlify @ https://discontent.netlify.app/
+Deployed using Netlify @ https://art-discontent.netlify.app/
