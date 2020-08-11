@@ -20,14 +20,15 @@ class ArticleTemplate extends React.Component {
 
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
       if(x.nodeType === "paragraph"){
-        return {type: x.nodeType, value: x.content[0].value}
-      } else if(x.nodeType === "heading-2") {
+        return {type: x.nodeType, value: x.content}
+      }
+      else if(x.nodeType === "heading-2") {
         return {type: "heading-2", value: x.content[0].value}
       } else {
         return {type: "image", value: parseInt(x.content[0].value)}
       }
     }));
-
+    
     return (
     <div>
     <Helmet title={`${post.artistName} | AD`}>
@@ -37,7 +38,9 @@ class ArticleTemplate extends React.Component {
       <meta name="twitter:image" content={`https:${post.carouselImage.file.url}?w=500&q=100`} />
     </Helmet>
       <Navigation logo={siteMetadata.favicon}/>
-      <div id="wrapper-parallax" className={styles.wrapperParallax} style={{ background: post.color[0] }}>
+      <div id="wrapper-parallax"
+      className={styles.wrapperParallax}
+      style={{ background: post.color[0] }}>
         <div id="header" className={styles.header}>
           <ArticleHeader
           titleQuote={post.titleQuote.childMarkdownRemark.excerpt}
@@ -62,9 +65,9 @@ class ArticleTemplate extends React.Component {
           <ArticleShare
           siteUrl = {siteMetadata.siteUrl}
           slug = {post.slug}
+          color = {post.color[4]}
           >
           </ArticleShare>
-          hello
 
           <ArticleCarousel deviceType="desktop"
           carouselItems = {carouselItems.edges}
@@ -112,6 +115,7 @@ export const articleQuery = graphql`
         }
       }
       content {
+        content
         json
       }
       carouselImage{

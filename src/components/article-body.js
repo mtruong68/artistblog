@@ -10,6 +10,15 @@ const SetImg = styled(Img)`
   margin-right: 2em;
 `;
 
+const HoverElement = styled.a`
+  color: ${props => props.defaultColor};
+  text-decoration: none;
+  &:hover {
+    color: ${props => props.hoverColor};
+    text-decoration: underline;
+  }
+`;
+
 const ArticleBody = ( props ) => {
   const articleBody = JSON.parse(props.articleText)
   let imgIdx = 0;
@@ -22,7 +31,7 @@ const ArticleBody = ( props ) => {
   }
 
   return (
-    <div className={styles.articleBodyWrapper}>
+    <div className={styles.articleBodyWrapper} style={{color: props.color[5]}}>
       <div className={styles.nameWrapper} id="title">
         <span className={styles.artistName}>{props.artistName}    </span>
         <span className={styles.subQuote}>{props.subQuote}</span>
@@ -34,10 +43,31 @@ const ArticleBody = ( props ) => {
       <br></br>
       {articleBody.map(( node, i ) => {
         if(node.type === "paragraph"){
-          return (<div key={`${props.slug}${i}`} className={styles.text}>{node.value}</div>);
+          return (<div key={`${props.slug}${i}`} className={styles.text}>
+            {node.value.map((pNode, j) => {
+              if (pNode.nodeType === "text"){
+                return (
+                <span key={`${props.slug}${i}-${j}`}>{pNode.value}</span>
+                )
+              } else if (pNode.nodeType === "hyperlink") {
+                return(
+                  <HoverElement
+                  key={`${props.slug}${i}-${j}`}
+                  defaultColor={props.color[4]}
+                  hoverColor={props.color[6]}
+                  href={pNode.data.uri}>
+                    {pNode.content[0].value}
+                  </HoverElement>
+                )
+              } else {
+                return(<span key={`${props.slug}${i}-${j}`}></span>)
+              }
+            })}
+            </div>
+          );
         } else if (node.type === "heading-2") {
           return(
-            <div key={`${props.slug}${i}`}   className={styles.quote} style={{color: "white"}}>
+            <div key={`${props.slug}${i}`}   className={styles.quote} style={{color: props.color[4]}}>
               <div>
                 “{node.value}”
               </div>
@@ -78,7 +108,12 @@ const ArticleBody = ( props ) => {
       })}
       <div className={styles.artistSite}>
         See more from the artist at <br></br>
-        <a href={`${props.artistSite}`}>{props.artistSite}</a>
+        <HoverElement
+          defaultColor={props.color[5]}
+          hoverColor={props.color[6]}
+          href={`${props.artistSite}`}>
+            {props.artistSite}
+        </HoverElement>
       </div>
     </div>
   )
