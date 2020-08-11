@@ -116,16 +116,6 @@
   padding-top: 2em;
 }
 
-.artistSite a {
-  color: white;
-  text-decoration: none;
-}
-
-.artistSite a:hover {
-  color: blue;
-  text-decoration: none;
-}
-
 @media(min-width:700px) and (max-width:1000px){
   .nameWrapper {
     width: 85vw;

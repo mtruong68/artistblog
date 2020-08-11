@@ -10,7 +10,7 @@
 ### CMS
 
 * every article has colors specific to each article & passed into the components. the order of the colors is so:
-[0] Page Background Color, [1] Background Color for Header Video/Image, [2] Background Color for Header Quote, [3] Text Color of Header Quote, [4] Color of Quotes in Article Body, [5] Color of Text in Article Body
+[0] Page Background Color, [1] Background Color for Header Video/Image, [2] Background Color for Header Quote, [3] Text Color of Header Quote, [4] Color of Quotes in Article Body, [5] Color of Text in Article Body [6] Hover Elements in Article Body
 
 * unfortunately, I didn't want to figure out how to render the rich text images from Contentful (though there seems to be a lot of hacks) into Gatsby Images, so instead, the images are stored in an array and when parsing the rich text blog post (Article), every Heading-3 node indicates where a picture should be. The pictures should be saved IN order
 

@@ -1,5 +1,4 @@
 .shareContainer {
-  color: white;
   display: block;
   margin-bottom: 6em;
 }
@@ -14,15 +13,14 @@
 .shareLink {
   display: block;
   text-decoration: none;
-  color: white;
   font-size: 3em;
   margin: auto;
   text-align: center;
-
+  color: inherit;
 }
 
 .shareLink:hover {
-  color: #97a19c;
+  color: blue;
   cursor: pointer;
 }
 

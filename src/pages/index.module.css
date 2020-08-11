@@ -81,6 +81,7 @@
   background-color: black;
   top: 43%;
   right: 7%;
+  max-width: 70%;
   font-family: 'Ubuntu Mono', monospace;
   -webkit-transform: translateZ(0);
   letter-spacing: 1px;

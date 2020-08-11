@@ -18,7 +18,7 @@ class ArticleShare extends React.Component {
     const url = `${siteUrl}/art/${this.props.slug}`
 
     return (
-      <div className={styles.shareContainer}>
+      <div className={styles.shareContainer} style={{color: this.props.color}}>
       <div className={styles.shareText}>Share this article</div>
       <div className={styles.squiggleOuterWrapper}>
         <div className={styles.squiggleWrapper}>
