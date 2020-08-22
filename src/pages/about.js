@@ -31,7 +31,7 @@ class AboutPage extends React.Component {
             </div>
             <div className={styles.answer}>
               It's a pun for 'Artist Content', an acknowledgement that the art content
-              comes second in this site (and the artist's perspective on art first),
+              comes second in this site (and the artist's perspective on their practice/art first),
               and a reaction against the veneration of art solely from its mysticism.
               I think art is richer and deeper from explicit conversation. If your art art relies on
               obfuscation to be interesting, then I'm not interested in it.
@@ -41,11 +41,11 @@ class AboutPage extends React.Component {
             </div>
             <div className={styles.answer}>
               I saw this <a href="https://wepresent.wetransfer.com/story/emma-larsson/">webpage</a> and thought
-              that it would be neat to create interesting, professional web articles for otherwise unknown artists.
-              And then I thought that creating an archive of art perspectives from people who are not fully integrated
-              in the 'fine arts world' (yet) would be interesting. As a pretty young artist, I want to know what other
-              artists feel about art, how they're navigating their questions and uncertainties, and any truths that they've
-              come to know about art.
+              that it would be neat to create interesting, professional web articles for artists who might not
+              usually get that opportunity. And then it evolved into wanting to be an archive of philosophies about
+              young practices-- not every person pursuing fine arts is going to "make it" in the art world (the
+              majority of these interviews come from people who are a year or two out of undergrad). I think it would
+              be a shame to lose so many thoughts about art, and so this website is trying to keep a record of that.
             </div>
             <div className={styles.question}>How did you make this site?</div>
             <div className={styles.answer}>
@@ -76,6 +76,17 @@ class AboutPage extends React.Component {
               illustrators, graphic designers, UX/UI people are welcome (but still send me some sort of statement about your
               perspective on art). I'm more interested in publishing unique perspectives about art, but the artwork matters
               as well. I also am more interested in writing about relatively unknown artists.
+            </div>
+            <div className={styles.question}>
+              What did you learn from making this site?
+            </div>
+            <div className={styles.answer}>
+            <ul>
+              <li>The responsibility of writing about another's practice is heavier than first expected.</li>
+              <li>There are many ways for an artwork to emerge from a practice.</li>
+              <li>Artists process the world using art.</li>
+              <li>Creation is compulsive for artists.</li>
+            </ul>
             </div>
             <div className={styles.question}>
               I have another question for you.
