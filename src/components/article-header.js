@@ -40,7 +40,10 @@ class ArticleHeader extends React.Component {
             <div className={styles.squiggle}></div>
           </div>
         </div>
-        <button className={styles.headerButton} onClick={this.scrollDown}>
+        <button
+        className={styles.headerButton}
+        onClick={this.scrollDown}
+        style={{ background: this.props.color[2]}}>
           <span className="material-icons">expand_more</span>
         </button>
       </div>

@@ -149,13 +149,13 @@ class RootIndex extends React.Component {
                 className={styles.videoLink}
                 onMouseEnter={this.articleEmph}
                 onMouseLeave={this.resetArticlePreview}>
+                <video className={styles.video} id="previewVideo" autoPlay muted loop>
+                  <source src={posts[0].node.heroVideo.file.url} />
+                </video>
                 <div id="previewName" className={styles.previewName}>{posts[0].node.artistName}</div>
                 <div id="previewQuote" className={styles.previewQuote}>“{posts[0].node.titleQuote.childMarkdownRemark.excerpt}”</div>
                 <div id="videoOverlay" className={styles.videoOverlay}></div>
                 <div id="videoBorder" className={styles.videoBorder}></div>
-                <video id="previewVideo" autoPlay muted loop>
-                  <source src={posts[0].node.heroVideo.file.url} />
-                </video>
                 </Link>
               </div>
 

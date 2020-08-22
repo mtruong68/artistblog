@@ -57,6 +57,12 @@
   position: relative;
 }
 
+.video {
+  height:100%;
+  top: 20px;
+  z-index: 0;
+}
+
 .previewName{
   opacity: .8;
   font-weight: normal;
@@ -68,18 +74,19 @@
   font-variant-caps: small-caps;
   letter-spacing: 3px;
   font-size: 2em;
-  background: black;
-  top: 25%;
-  padding: 4px;
+  background: #121ec7;
+  top: 28%;
+  padding: 4px 8px;
   transition: opacity .2s linear;
+  -webkit-transform: translateZ(0);
 }
 
 .previewQuote{
   opacity: 1;
   position: absolute;
   color: white;
-  background-color: black;
-  top: 43%;
+  background-color: #0812a3;
+  top: 48%;
   right: 7%;
   max-width: 70%;
   font-family: 'Ubuntu Mono', monospace;
