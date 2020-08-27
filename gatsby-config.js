@@ -26,7 +26,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: `Art-Discontent`,
-    siteUrl: `https://art-discontent.netlify.app`,
+    siteUrl: `https://art-discontent.com`,
     description: `Profiles and Perspectives of Artists`,
     favicon: `https://images.ctfassets.net/6s4jk5jfys8a/33vHyExn2rHD1UK3XYfRy0/01387e7d961d9f314d38228209fe3e35/artdiscontent-logo.png?h=50&q=50`,
     logoLarge: `https://images.ctfassets.net/6s4jk5jfys8a/4AlJvkQOgWnus6xNz61yJL/12e8d23ff8b4395c39978fccf2283116/artdiscontent-small.png?w=400&q=100`
