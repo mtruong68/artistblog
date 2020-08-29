@@ -1,6 +1,21 @@
 import React from 'react'
 
 import styles from './article-share.module.css'
+import styled from 'styled-components';
+
+const HoverElement = styled.a`
+  text-decoration: none;
+  &:hover {
+    color: ${props => props.hoverColor};
+  }
+`;
+
+const HoverButton = styled.span`
+  &:hover {
+    color: ${props => props.hoverColor};
+  }
+`;
+
 
 class ArticleShare extends React.Component {
   copyLink(url){
@@ -26,17 +41,21 @@ class ArticleShare extends React.Component {
         </div>
       </div>
 
-      <a className={styles.shareLink}
+      <HoverElement
+      hoverColor={this.props.hoverColor}
+      className = {styles.shareLink}
       rel="noreferrer"
       href={`https://twitter.com/intent/tweet?text=${text}&url=${url}`}
       target="_blank">
-      Tweet</a>
+      Tweet</HoverElement>
 
-      <span role="button"
+      <HoverButton
+      role="button"
+      hoverColor={this.props.hoverColor}
       tabIndex={0}
       className={styles.shareLink}
       onKeyDown={this.copyLink(url)}
-      onClick={this.copyLink(url)}>Link</span>
+      onClick={this.copyLink(url)}>Link</HoverButton>
       </div>
     )
   }

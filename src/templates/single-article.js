@@ -28,7 +28,7 @@ class ArticleTemplate extends React.Component {
         return {type: "image", value: parseInt(x.content[0].value)}
       }
     }));
-    
+
     return (
     <div>
     <Helmet title={`${post.artistName} | AD`}>
@@ -66,6 +66,7 @@ class ArticleTemplate extends React.Component {
           siteUrl = {siteMetadata.siteUrl}
           slug = {post.slug}
           color = {post.color[4]}
+          hoverColor = {post.color[6]}
           >
           </ArticleShare>
 

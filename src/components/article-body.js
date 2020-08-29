@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const SetImg = styled(Img)`
   display: block !important;
   flex-grow: 1;
-  margin-right: 2em;
+  margin-right: 1em;
 `;
 
 const HoverElement = styled.a`
