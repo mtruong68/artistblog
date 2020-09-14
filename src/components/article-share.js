@@ -10,23 +10,8 @@ const HoverElement = styled.a`
   }
 `;
 
-const HoverButton = styled.span`
-  &:hover {
-    color: ${props => props.hoverColor};
-  }
-`;
-
 
 class ArticleShare extends React.Component {
-  copyLink(url){
-    if(typeof window !== 'undefined'){
-      window.navigator.clipboard.writeText(url).then(function() {
-      }, function(err) {
-        console.error('Async: Could not copy text: ', err);
-      });
-    }
-  }
-
   render() {
     const siteUrl = this.props.siteUrl
     const text = `wanted%20to%20share%20this%20artist's%20art%20thoughts`
@@ -49,13 +34,14 @@ class ArticleShare extends React.Component {
       target="_blank">
       Tweet</HoverElement>
 
-      <HoverButton
-      role="button"
+      <HoverElement
       hoverColor={this.props.hoverColor}
-      tabIndex={0}
-      className={styles.shareLink}
-      onKeyDown={this.copyLink(url)}
-      onClick={this.copyLink(url)}>Link</HoverButton>
+      className = {styles.shareLink}
+      rel="noreferrer"
+      href={`http://facebook.com/sharer/sharer.php?u=${url}`}
+      target="_blank">
+      Facebook</HoverElement>
+
       </div>
     )
   }

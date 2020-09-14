@@ -36,6 +36,11 @@ class ArticleTemplate extends React.Component {
       <meta name="twitter:title" content={`${post.artistName} | ${siteMetadata.title}`} />
       <meta name="twitter:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
       <meta name="twitter:image" content={`https:${post.carouselImage.file.url}?w=500&q=100`} />
+      <meta property="og:url" content={`${siteMetadata.siteUrl}/art/${post.slug}`} />
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={`${post.artistName} | ${siteMetadata.title}`} />
+      <meta property="og:description" content={`${post.titleQuote.childMarkdownRemark.excerpt}`} />
+      <meta property="og:image" content={`https:${post.carouselImage.file.url}?w=500&q=100`} />
     </Helmet>
       <Navigation logo={siteMetadata.favicon}/>
       <div id="wrapper-parallax"
