@@ -13,10 +13,17 @@ import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 
 class ArticleTemplate extends React.Component {
+  componentDidMount(){
+  }
+
   render() {
     const post = get(this.props, 'data.contentfulArticle')
     const carouselItems = (get(this.props, 'data.allContentfulArticle'))
     const siteMetadata = get(this.props, 'data.site.siteMetadata')
+
+    if (!post){
+      return(<div></div>)
+    } else {
 
     const jsonText = JSON.stringify(post.content.json.content.map((x) => {
       if(x.nodeType === "paragraph"){
@@ -51,6 +58,7 @@ class ArticleTemplate extends React.Component {
       style={{ background: post.color[0] }}>
         <div id="header" className={styles.header}>
           <ArticleHeader
+          videoStill={post.videoStill}
           titleQuote={post.titleQuote.childMarkdownRemark.excerpt}
           video={post.heroVideo.file.url}
           color={post.color}>
@@ -89,6 +97,7 @@ class ArticleTemplate extends React.Component {
       </div>
     </div>
     )
+    }
   }
 }
 
@@ -106,6 +115,11 @@ export const articleQuery = graphql`
       titleQuote {
         childMarkdownRemark {
           excerpt
+        }
+      }
+      videoStill {
+        fluid(maxWidth: 1200) {
+          ...GatsbyContentfulFluid
         }
       }
       subquote {
