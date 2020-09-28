@@ -33,7 +33,7 @@ class AboutPage extends React.Component {
               It's a pun for 'Artist Content', an acknowledgement that the art content
               comes second in this site (and the artist's perspective on their practice/art first),
               and a reaction against the veneration of art solely from its mysticism.
-              I think art is richer and deeper from explicit conversation. If your art art relies on
+              I think art is richer and deeper from explicit conversation. If your art relies on
               obfuscation to be interesting, then I'm not interested in it.
             </div>
             <div className={styles.question}>

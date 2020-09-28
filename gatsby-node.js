@@ -42,8 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
               shuffled[index] = shuffled[i];
               shuffled[i] = temp;
           }
-          //get 3 articles
-          randArticles = shuffled.slice(0, 4);
+          randArticles = shuffled.slice(0, 6);
 
           createPage({
             path: `/art/${post.node.slug}/`,

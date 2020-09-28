@@ -46,6 +46,7 @@ class RootIndex extends React.Component {
         document.getElementById('previewName').innerText = posts[i].node.artistName;
         document.getElementById('previewQuote').innerText = `“${posts[i].node.titleQuote.childMarkdownRemark.excerpt}”`;
         document.getElementById('previewVideo').src = posts[i].node.heroVideo.file.url;
+        document.getElementById('videoStill').src = posts[i].node.videoStill.file.url;
       }, 200);
     } else {
       document.getElementById('videoOverlay').style.opacity = 0;
@@ -134,6 +135,26 @@ class RootIndex extends React.Component {
       i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
       i want a genital art i want a transparent art i want a difficult art i want an
       impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
+      i want a new art i want a Black art i want a silent art i want a violent art
+      i want a revolutionary art i want a hearing art i want a crip art i want a gentle art
+      i want a genital art i want a transparent art i want a difficult art i want an
+      impossible art i want an art that can kill, that can kill, that can kill, kill, kill
       </div>
         <Helmet title={siteMetadata.title} >
         <link rel="icon" type="image/png"
@@ -149,9 +170,13 @@ class RootIndex extends React.Component {
                 className={styles.videoLink}
                 onMouseEnter={this.articleEmph}
                 onMouseLeave={this.resetArticlePreview}>
+
                 <video className={styles.video} id="previewVideo" autoPlay muted loop>
                   <source src={posts[0].node.heroVideo.file.url} />
                 </video>
+
+                <img alt="article preview" id="videoStill" className={styles.videoStill} src={posts[0].node.videoStill.file.url} />
+
                 <div id="previewName" className={styles.previewName}>{posts[0].node.artistName}</div>
                 <div id="previewQuote" className={styles.previewQuote}>“{posts[0].node.titleQuote.childMarkdownRemark.excerpt}”</div>
                 <div id="videoOverlay" className={styles.videoOverlay}></div>
@@ -232,6 +257,11 @@ export const pageQuery = graphql`
             }
           }
           heroVideo {
+            file {
+              url
+            }
+          }
+          videoStill{
             file {
               url
             }
