@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
+import { graphql } from 'gatsby'
 
 import styles from './404.module.css'
 

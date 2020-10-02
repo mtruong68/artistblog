@@ -13,7 +13,7 @@ import styled from 'styled-components';
 const SetImg = styled(Img)`
   display: block;
   flex-grow: 1;
-  max-height: 300px;
+  max-height: 240px;
 `;
 
 class ArtPage extends React.Component {

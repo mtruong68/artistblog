@@ -57,4 +57,4 @@ Run this after `npm run build` to create a manual deployment: cannot do continuo
 
 ## Deployment
 
-Deployed using Netlify @ https://art-discontent.netlify.app/
+Deployed using Netlify @ https://art-discontent.com/
