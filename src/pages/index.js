@@ -22,7 +22,6 @@ class RootIndex extends React.Component {
     this.state = {
       currNode: 0,
     }
-
     this.resetArticlePreview = this.resetArticlePreview.bind(this);
   }
 
@@ -36,6 +35,7 @@ class RootIndex extends React.Component {
       this.setState((state) => {
         state.currNode = i;
       });
+
       document.getElementById('videoOverlay').style.opacity = 1;
       document.getElementById('videoBorder').style.opacity = 0;
       document.getElementById('previewName').style.opacity = 1;
@@ -166,10 +166,8 @@ class RootIndex extends React.Component {
         <div className={styles.wrapper}>
             <div className={styles.leftHalf}>
               <div className={styles.preview}>
-                <Link to={`/art/${posts[0].node.slug}`}
-                className={styles.videoLink}
-                onMouseEnter={this.articleEmph}
-                onMouseLeave={this.resetArticlePreview}>
+                <div
+                className={styles.videoLink}>
 
                 <video className={styles.video} id="previewVideo" autoPlay muted loop>
                   <source src={posts[0].node.heroVideo.file.url} />
@@ -181,7 +179,7 @@ class RootIndex extends React.Component {
                 <div id="previewQuote" className={styles.previewQuote}>“{posts[0].node.titleQuote.childMarkdownRemark.excerpt}”</div>
                 <div id="videoOverlay" className={styles.videoOverlay}></div>
                 <div id="videoBorder" className={styles.videoBorder}></div>
-                </Link>
+                </div>
               </div>
 
               <div className={styles.infoLinks}>

@@ -55,7 +55,8 @@ const ArticleBody = ( props ) => {
                   key={`${props.slug}${i}-${j}`}
                   defaultColor={props.color[4]}
                   hoverColor={props.color[6]}
-                  href={pNode.data.uri}>
+                  href={pNode.data.uri}
+                  target={'_blank'}>
                     {pNode.content[0].value}
                   </HoverElement>
                 )
