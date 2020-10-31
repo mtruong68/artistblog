@@ -48,7 +48,7 @@ class ArticleHeader extends React.Component {
 
     <video
     id='video'
-    autoPlay muted loop className={styles.headerVideo}
+    autoPlay muted loop playsInline className={styles.headerVideo}
     onLoadedData={this.changeBackground.bind(this, this.props.color[1])}>
       <source src={this.props.video} />
     </video>
