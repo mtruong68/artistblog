@@ -176,7 +176,8 @@
 }
 
 @media(max-width: 450px) {
-  .articleBodyWrapper{
+  .subQuote {
+    font-size: 22px;
   }
 
   .artistSite {
@@ -188,6 +189,10 @@
     width: 90%;
     font-size: 16px;
     line-height: 1.8em;
+  }
+
+  .text + .text {
+    margin-top: 24px;
   }
 
   .squiggle {
